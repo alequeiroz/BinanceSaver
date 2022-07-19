@@ -1,0 +1,121 @@
+{
+    "moedas": {
+        "1": {
+            "simbolo": "bnbusdt"
+        },
+        "2": {
+            "simbolo": "wavesusdt"
+        },
+        "3": {
+            "simbolo": "blzusdt"
+        },
+        "4": {
+            "simbolo": "etcusdt"
+        },
+        "5": {
+            "simbolo": "galausdt"
+        },
+        "6": {
+            "simbolo": "solusdt"
+        },
+        "7": {
+            "simbolo": "avaxusdt"
+        },
+        "8": {
+            "simbolo": "renusdt"
+        },
+        "9": {
+            "simbolo": "celrusdt"
+        },
+        "10": {
+            "simbolo": "atausdt"
+        },
+        "11": {
+            "simbolo": "eosusdt"
+        },
+        "12": {
+            "simbolo": "aliceusdt"
+        },
+        "13": {
+            "simbolo": "adausdt"
+        },
+        "14": {
+            "simbolo": "ontusdt"
+        },
+        "15": {
+            "simbolo": "ethusdt"
+        },
+        "16": {
+            "simbolo": "celousdt"
+        },
+        "17": {
+            "simbolo": "sandusdt"
+        },
+        "18": {
+            "simbolo": "xemusdt"
+        },
+        "19": {
+            "simbolo": "thetausdt"
+        },
+        "20": {
+            "simbolo": "peopleusdt"
+        },
+        "21": {
+            "simbolo": "linkusdt"
+        },
+        "22": {
+            "simbolo": "atomusdt"
+        },
+        "23": {
+            "simbolo": "ctkusdt"
+        },
+        "24": {
+            "simbolo": "btcusdt"
+        },
+        "25": {
+            "simbolo": "linausdt"
+        },
+        "26": {
+            "simbolo": "neousdt"
+        },
+        "27": {
+            "simbolo": "ltcusdt"
+        },
+        "28": {
+            "simbolo": "storjusdt"
+        },
+        "29": {
+            "simbolo": "grtusdt"
+        },
+        "30": {
+            "simbolo": "chzusdt"
+        },
+        "31": {
+            "simbolo": "maticusdt"
+        },
+        "32": {
+            "simbolo": "reefusdt"
+        },
+        "33": {
+            "simbolo": "snxusdt"
+        },
+        "34": {
+            "simbolo": "opusdt"
+        },
+        "35": {
+            "simbolo": "nearusdt"
+        },
+        "36": {
+            "simbolo": "algousdt"
+        },
+        "37": {
+            "simbolo": "cotiusdt"
+        },
+        "38": {
+            "simbolo": "ksmusdt"
+        },
+        "39": {
+            "simbolo": "chrusdt"
+        }
+    }
+}

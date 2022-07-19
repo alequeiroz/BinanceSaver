@@ -1,0 +1,10 @@
+sqlite
+tinydb
+sqlite3
+threading
+logging
+os
+unicorn-binance-websocket-api
+unicorn-fy
+unicorn-binance-rest-api
+
