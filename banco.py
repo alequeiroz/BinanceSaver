@@ -19,12 +19,13 @@ def iniciaBanco():
         banco = sqlite3.connect('profitor.db')
     except Exception as e:
         print('Erro ao conectar no banco: ',e)
+        return False
 
     return banco
     
 
 def criarTabela(): 
-    print('criando tabelas') 
+    print('Criando tabelas') 
     coin:str  
     for coin in markets:
         moeda = coin.upper()
@@ -89,20 +90,14 @@ def criarTabela():
          
                 
 def salvarDepth(payload):
-    
-    #print('especs',payload['symbol'],' :',type(payload['asks']), len(payload['asks']))
-
     comando:str
     comando = "INSERT INTO "+payload['symbol']+'_depthUpdate VALUES ('+str(payload['event_time'])+','+str(payload['first_update_id_in_event'])+','+str(payload['final_update_id_in_event'])+',"'+str(payload['asks'])+'")'
-    #print('\n\n********\nsalvando aggtrade: ', comando)
     cur.execute(comando)
     banco.commit()
-
 
 def salvarAggtrade(payload):
     comando:str
     comando = "INSERT INTO "+payload['symbol']+'_aggTrade VALUES ('+payload['price']+','+payload['quantity']+','+str(payload['trade_time'])+')'
-    #print('\n\n********\nsalvando aggtrade: ', comando)
     cur.execute(comando)
     banco.commit()
 
@@ -133,7 +128,6 @@ def salvarKline(payload):
     banco.commit()
 
 def atualizarBanco():
-    print('iniciando atualização do banco')
     for atualizacao in buffer[:]:
         if atualizacao['event_type'] == 'kline':
             try:
@@ -152,7 +146,6 @@ def atualizarBanco():
         
         elif atualizacao['event_type'] == 'depthUpdate':
             try:
-                #print('salvando depth')
                 salvarDepth(atualizacao)
             except Exception as e:
                 print('erro:', e)
