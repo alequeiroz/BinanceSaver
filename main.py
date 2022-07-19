@@ -1,8 +1,6 @@
 from unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
-import unicorn_fy
 import logging
 import os
-import sys
 import time
 import threading
 from tinydb import TinyDB, Query, table, where
@@ -14,7 +12,7 @@ import banco
 
 
 logging.getLogger("unicorn_binance_websocket_api")
-logging.basicConfig(level=logging.DEBUG,
+logging.basicConfig(level=logging.ERROR,
                     filename=os.path.basename(__file__) + '.log',
                     format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                     style="{")
@@ -22,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG,
 db:sqlite3
 
 def pegarMoedas():
-    print('pegando moedas')
+    print('Cadastrando moedas')
     database = TinyDB('moedas.json')
     tabelaMoedas = database.table('moedas')#atualiza a tabela de trade do banco
     moedas = tabelaMoedas.all()
@@ -31,7 +29,11 @@ def pegarMoedas():
 
     print('moedas selecionadas:', banco.markets)
 
+def monitorarConexao(binance_websocket_api_manager):
+    while True: 
+        binance_websocket_api_manager.print_summary()
 
+        time.sleep(1)
 
 def main():
     db = banco.iniciaBanco()
@@ -49,22 +51,16 @@ def main():
     binance_websocket_api_manager.create_stream('aggTrade', banco.markets, stream_label='aggTrade')
     binance_websocket_api_manager.create_stream('depth@100ms', banco.markets, stream_label='depth@100ms')
 
+    #binance_websocket_api_manager.start_monitoring_api(port=5013, warn_on_update=True)
 
-    # start a restful api server to report the current status to 'tools/icinga/check_binance_websocket_manager' which can be
-    # used as a check_command for ICINGA/Nagios
-    #binance_websocket_api_manager.start_monitoring_api(warn_on_update=False)
-    binance_websocket_api_manager.start_monitoring_api(port=5013, warn_on_update=True)
-    
-
-    # if you like to not only listen on localhost use 'host="0.0.0.0"'
-    # for a specific port do 'port=80'
-    # binance_websocket_api_manager.start_monitoring_api(host="0.0.0.0", port=80)
+    threading.Thread(target=monitorarConexao, args=(binance_websocket_api_manager,), name='MONITORAR WEBSOCKET').start()
 
     print("Websockets started!")
+
+
     while True:
-        binance_websocket_api_manager.print_summary()
         banco.atualizarBanco()
-        time.sleep(1)
+        
 
 
 if __name__ == '__main__':
