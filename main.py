@@ -55,10 +55,10 @@ def main():
 
     threading.Thread(target=monitorarConexao, args=(binance_websocket_api_manager,), name='MONITORAR WEBSOCKET').start()
 
-    print("Websockets started!")
-
+    print("Websockets iniciados!")
 
     while True:
+
         banco.atualizarBanco()
         
 
