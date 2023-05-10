@@ -1,0 +1,25 @@
+version: '3.10.9-slim'
+
+services:
+   app:
+    ports:
+      - 8081:8081
+    expose:
+      - 8081
+    container_name: binance_saver_profitor
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      WATCHPACK_POLLING: 'true'
+    volumes:
+      - .:/app
+    networks:
+      - main
+      
+networks:
+  main:
+
+
+

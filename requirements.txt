@@ -7,4 +7,5 @@ os
 unicorn-binance-websocket-api
 unicorn-fy
 unicorn-binance-rest-api
+fastapi
 

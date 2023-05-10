@@ -114,8 +114,23 @@
         "38": {
             "simbolo": "ksmusdt"
         },
-        "39": {
+        "40": {
             "simbolo": "chrusdt"
+        },
+        "41": {
+            "simbolo": "duskusdt"
+        },
+        "42": {
+            "simbolo": "injusdt"
+        },
+        "43": {
+            "simbolo": "cfxusdt"
+        },
+        "44": {
+            "simbolo": "filusdt"
+        },
+        "45": {
+            "simbolo": "fetusdt"
         }
     }
 }
